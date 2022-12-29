@@ -1,0 +1,43 @@
+<?page title="List clothes" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition"
+arg0="/template/layout.zul"?>
+<zk>
+	<vlayout self="@define(content)" apply="vnua.fita.controller.HomeController">
+		<div height="50px" style = "margin-top:20px;">
+			<label id = "titleLabel"/>
+		</div>
+		<listbox id="clothesListBox" mold="paging" pageSize="3"
+		emptyMessage="No clothes found in the result" style="border: 0px;">
+			<template name="model">
+				<listitem>
+					<listcell>
+						<image src="${each.preview}" width="50px" />
+					</listcell>
+					<listcell>
+						<vlayout hflex="1">
+						<label value="${each.name}" />
+						<label value="${each.brand}" />
+						<label value="${each.price}" />
+						<label value="${each.size}" />
+						<label value="${each.quantity}" />
+						<label value="${each.origin}" />
+						</vlayout>
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+		<hlayout id="clothesDetail" style="margin-top:20px" width="100%"
+		visible="false">
+			<image id="previewImage" width="250px" />
+			<vlayout hflex="1">
+				<label id="nameLabel" />
+				<label id="brandLabel" />
+				<label id="priceLabel" />
+				<label id="sizeLabel" />
+				<label id="quantityLabel" />
+				<label id="originLabel" />
+				<a id="back" label="Back" />
+			</vlayout>
+		</hlayout>
+	</vlayout>
+</zk>

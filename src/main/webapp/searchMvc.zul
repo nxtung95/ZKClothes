@@ -1,0 +1,54 @@
+<?page title="Clothes management" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition"
+arg0="/template/layout.zul"?>
+<zk>
+	<vlayout width="100%" apply="vnua.fita.controller.SearchController" self="@define(content)">
+		<div height="50px" style = "margin-top:20px;">CLOTHES MANAGEMENT:</div>
+		<hbox align="center" style = "margin-bottom: 10px;">
+			Keyword:
+			<textbox id="keywordBox" />
+			<button id="searchButton" label="Search" image="/img/search.png" />
+			<button id="addButton" label="Add"/>
+		</hbox>
+		<listbox id="clothesListBox" rows="3" emptyMessage="No clothes found in the result" mold="paging"
+		pageSize="3">
+			<listhead>
+				<listheader label="Name" width="15%"/>
+				<listheader label="Brand" width="10%"/>
+				<listheader label="Price" width="10%"/>
+				<listheader label="Size" width="5%"/>
+				<listheader label="Quantity" width="5%"/>
+				<listheader label="Origin" width="25%"/>
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.name}"></listcell>
+					<listcell label="${each.brand}"></listcell>
+					<listcell><label value="${each.price}"/> VND</listcell>
+					<listcell label="${each.size}"></listcell>
+					<listcell label="${each.quantity}"></listcell>
+					<listcell label="${each.origin}"></listcell>
+					<listcell >
+						<hlayout>
+							<button label="Edit"
+							forward="onClick=clothesListBox.onEdit" id = "Edit${each.id}"/>
+							<button label="Delete"
+							forward="onClick=clothesListBox.onDelete" id = "Delete${each.id}"/>
+						</hlayout>
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+		<hlayout id="clothesDetail" style="margin-top:20px" width="100%">
+			<image id="previewImage" width="250px" />
+			<vlayout hflex="1">
+				<label id="nameLabel" />
+				<label id="brandLabel" />
+				<label id="priceLabel" />
+				<label id="sizeLabel" />
+				<label id="quantityLabel" />
+				<label id="originLabel" />
+			</vlayout>
+		</hlayout>
+	</vlayout>
+</zk>

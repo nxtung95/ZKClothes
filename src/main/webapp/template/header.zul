@@ -1,0 +1,22 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<vlayout vflex = "1" hflex = "1">
+	<div vflex="4">
+		<separator class="header-bar" />
+		<label class="header-title1" value="Another ZK Blog" />
+		<label class="header-title2" value="ZK, Open Source, Ajax, Java, Web developer, Driect
+		RIA, High Speed Low Drag" />
+	</div>
+	<div vflex="1" style="background-color:white;border-bottom:0px">
+	<menubar id="menubar" vflex = "1" width="100%" autodrop="true" style="borderbottom:0px">
+		<menuitem label="Home" href="/home.zul" />
+			<menu label="Clothes Brand">
+				<menupopup>
+					<menuitem label="VNXK" href="/home.zul?type=vnxk"/>
+					<menuitem label="Adidas" href="/home.zul?type=adidas"/>
+					<menuitem label="Nike" href="/home.zul?type=nike"/>
+				</menupopup>
+			</menu>
+		<menuitem label="Clothes Management" href="/searchMvc.zul" />
+	</menubar>
+	</div>
+</vlayout>

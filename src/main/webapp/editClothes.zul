@@ -1,0 +1,59 @@
+<?page title="Edit clothes" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="modalDialog" closable="true" title="Edit clothes" border="normal"
+apply="vnua.fita.controller.UpdateClothesController" width="80%">
+		<grid id="formGrid" ctrlKeys="^h" width="70%" vflex="1">
+			<auxhead>
+				<auxheader colspan="2" label="Add clothes Form" style="font-size:16px" />
+			</auxhead>
+			<columns visible="false">
+				<column />
+				<column />
+				<column />
+				<column />
+			</columns>
+			<rows>
+				<row id="nameRow">
+					<!-- constraint="no empty" -->
+					Name
+					<textbox id="nameBox" hflex="1"
+						constraint="no empty: Nhập name" />
+				</row>
+				<row>
+					Brand
+					<textbox id="brandBox" hflex="1"
+						constraint="no empty: Nhập brand" />
+				</row>
+				<row>
+					Price
+					<textbox id="priceBox" hflex="1"
+						constraint="no empty: Nhập price" />
+				</row>
+				<row>
+					Quantity
+					<spinner id="quantityBox" width="100px" inplace="true" value="1" constraint="no empty,min 1"/>
+				</row>
+				<row>
+					Origin
+					<textbox id="originBox" hflex="1"
+						constraint="no empty: Nhập origin" />
+				</row>
+				<row>
+					Size
+					<textbox id="sizeBox" hflex="1"
+						constraint="no empty: Nhập size" />
+				</row>
+				<row>
+					<image id="previewImage" />
+					Upload clothes image
+					<fileupload label="Upload" onUpload="previewImage.setContent(event.media)" />
+				</row>
+				<row spans="2" align="right">
+					<hlayout>
+						<button id="updateClothesBtn" label="Update clothes" />
+					</hlayout>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>
